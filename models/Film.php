@@ -34,7 +34,7 @@ class Film
         return $films;
     }
 
-    public static function filterFilms($genre, $year, $studio)
+    public static function filterFilms($genre, $year)
     {
         $conn = Database::getConnection();
         $conditions = [];
@@ -46,10 +46,6 @@ class Film
         if ($year) {
             $yearEscaped = mysqli_real_escape_string($conn, $year);
             $conditions[] = "release_year = '$yearEscaped'";
-        }
-        if ($studio) {
-            $studioEscaped = mysqli_real_escape_string($conn, $studio);
-            $conditions[] = "studio = '$studioEscaped'";
         }
 
         $whereClause = count($conditions) ? "WHERE " . implode(" AND ", $conditions) : "";

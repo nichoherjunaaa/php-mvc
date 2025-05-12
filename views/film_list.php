@@ -13,7 +13,7 @@
     <div class="container">
         <header>
             <h1>Movie Collection</h1>
-            <p>Discover and explore amazing films</p>
+            <p>Cari, temukan, dan nikmati film terbaik pilihanmu di satu tempat!</p>
         </header>
         <form method="GET" action="">
             <div class="search-container">
@@ -24,25 +24,28 @@
             <div class="filter-container">
                 <label for="genreFilter">Genre:</label>
                 <select id="genreFilter" name="genre">
-                    <option value="">All Genres</option>
+                    <option value="">Semua Genre</option>
                     <?php
                     $genres = [
-                        "Action" => "Action",
-                        "Comedy" => "Comedy",
-                        "Drama" => "Drama",
-                        "Horror" => "Horror",
-                        "Romance" => "Romance",
-                        "Thriller" => "Thriller"
+                        'Aksi',
+                        'Komedi',
+                        'Drama',
+                        'Horor',
+                        'Romantis',
+                        'Thriller',
+                        'Fantasi',
+                        'Animasi',
+                        'Petualangan',
                     ];
                     foreach ($genres as $genre) {
-                        echo "<option value=\"$genre\">$genre</option>";
+                        echo "<option value=\"{$genre}\">{$genre}</option>";
                     }
                     ?>
                 </select>
 
-                <label for="yearFilter">Year:</label>
+                <label for="yearFilter">Tahun:</label>
                 <select id="yearFilter" name="year">
-                    <option value="">All Years</option>
+                    <option value="">Semua Tahun</option>
                     <?php
                     $years = [
                         "2020" => "2020",
@@ -54,17 +57,6 @@
                     ];
                     foreach ($years as $year) {
                         echo "<option value=\"$year\">$year</option>";
-                    }
-                    ?>
-                </select>
-
-                <label for="studioFilter">Studio:</label>
-                <select id="studioFilter" name="studio">
-                    <option value="">All Studios</option>
-                    <?php
-                    $studios = array_unique(array_column($films, 'studio'));
-                    foreach ($studios as $studio) {
-                        echo "<option value=\"$studio\">$studio</option>";
                     }
                     ?>
                 </select>
